@@ -1,22 +1,70 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+{% extends 'base.html' %}
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+{% block head_title %}
+this is amazing!!!!
+{% endblock head_title%}
 
-    <title>Hello, world!</title>
-  </head>
-  <body>
-    <h1>Hello, world!</h1>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-  </body>
-</html>
+{% block content %}
+
+<div class='row text-center'>
+    <div class='col'>
+        <h1>Welcome to Social Media</h1>
+    </div>
+</div>
+
+
+<div class='row' id='posts'>
+    Loading...
+</div>
+
+<script>
+const postsElement = document.getElementById("posts") // get an html element
+// tweetsElement.innerHTML = 'Loading...' // set new html in that element
+// var el1 = "<h1>Hi there 1</h1>"
+// var el2 = "<h1>Hi there 2</h1>"
+// var el3 = "<h1>Hi there 3</h1>"
+// tweetsElement.innerHTML = el1 + el2 + el3
+
+const xhr = new XMLHttpRequest()
+const method = 'GET' // "POST"
+const url = "/posts"
+const responseType = "json"
+
+
+function handleDidLike (post_id, currentCount) {
+    console.log(post_id, currentCount)
+    return 
+}
+
+function LikeBtn(post) {
+    return "<button class='btn btn-primary btn-sm' onclick=handleDidLike(" + 
+    post.id + "," + post.likes + ")>" + post.likes + " Likes</button>"
+}
+
+function formatPostElement(post) {
+    var formattedPost = "<div class='col-12 col-md-10 mx-auto border rounded py-3 mb-4 post' id='post-" + post.id 
+    + "'><p>" + post.content + 
+        "</p><div class='btn-group'>" + LikeBtn(post) +
+        "</div></div>"
+    return formattedPost
+}
+xhr.responseType = responseType
+xhr.open(method, url)
+xhr.onload = function() {
+    const serverResponse = xhr.response
+    const listedItems = serverResponse.response // array
+    var finalPostStr = ""
+    var i;
+    for (i=0;i<listedItems.length; i++) {
+        var postObj = listedItems[i]
+        var currentItem = formatPostElement(postObj)
+        finalPostStr += currentItem
+    }
+    postsElement.innerHTML = finalPostStr
+}
+xhr.send()
+
+
+</script>
+{% endblock content %}
