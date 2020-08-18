@@ -25,8 +25,8 @@ SECRET_KEY = '3y0rw-13=7-_@a1lvp198g6w_ivf@*r+c997z2g%zg15hk3d8m'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['127.0.0.1', '.cfe.sh']
+LOGIN_URL = "/login"
 
 # Application definition
 
