@@ -16,27 +16,23 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path, re_path, include
+from django.urls import path, re_path, include # url()
 from django.views.generic import TemplateView
-from posts.views import (
-    home_view, 
-    post_action_view,
-    post_delete_view,
-    post_detail_view, 
-    post_list_view,
-    post_create_view,
-)
 
+from posts.views import (
+    posts_list_view,
+    posts_detail_view,
+    posts_profile_view,
+)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home_view),
-    path('create-post', post_create_view),
-    path('react/', TemplateView.as_view(template_name='react_via_dj.html')),
-    path('posts/', post_list_view),
-    path('posts/<int:post_id>', post_detail_view),
-    path('api/posts/', include('posts.urls'))
+    path('', posts_list_view),
+    path('<int:post_id>', posts_detail_view),
+    path('profile/<str:username>', posts_profile_view),
+    path('api/posts/', include('posts.api.urls'))
 ]
 
 if settings.DEBUG:
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.STATIC_URL, 
+                document_root=settings.STATIC_ROOT)
