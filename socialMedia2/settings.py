@@ -19,12 +19,15 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-SECRET_KEY = '3y0rw-13=7-_@a1lvp198g6w_ivf@*r+c997z2g%zg15hk3d8m'
+# SECRET_KEY = '3y0rw-13=7-_@a1lvp198g6w_ivf@*r+c997z2g%zg15hk3d8m'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '3y0rw-13=7-_@a1lvp198g6w_ivf@*r+c997z2g%zg15hk3d8m')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', '.cfe.sh', 'localhost']
+
+
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 LOGIN_URL = "/login"
 
 MAX_POST_LENGTH = 240
