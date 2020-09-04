@@ -19,7 +19,13 @@ from django.contrib import admin
 from django.urls import path, re_path, include # url()
 from django.views.generic import TemplateView
 
-from posts.views import (
+from profiles.views import (
+    login_view,
+    logout_view,
+    register_view,
+)
+
+from posts.views import (   
     posts_list_view,
     posts_detail_view,
     posts_profile_view,
@@ -28,6 +34,9 @@ from posts.views import (
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', posts_list_view),
+    path('login/', login_view),
+    path('logout/', logout_view),
+    path('register/', register_view),
     path('<int:post_id>', posts_detail_view),
     path('profile/<str:username>', posts_profile_view),
     path('api/posts/', include('posts.api.urls'))

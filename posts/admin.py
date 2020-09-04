@@ -3,6 +3,7 @@ from django.contrib import admin
 # Register your models here.
 from .models import Post, PostLike
 
+
 class PostLikeAdmin(admin.TabularInline):
     model = PostLike
 
