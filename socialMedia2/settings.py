@@ -19,15 +19,15 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-# SECRET_KEY = '3y0rw-13=7-_@a1lvp198g6w_ivf@*r+c997z2g%zg15hk3d8m'
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '3y0rw-13=7-_@a1lvp198g6w_ivf@*r+c997z2g%zg15hk3d8m')
+SECRET_KEY = '3y0rw-13=7-_@a1lvp198g6w_ivf@*r+c997z2g%zg15hk3d8m'
+#  SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '3y0rw-13=7-_@a1lvp198g6w_ivf@*r+c997z2g%zg15hk3d8m')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'social-media-michal.herokuapp.com']
 LOGIN_URL = "/login"
 
 MAX_POST_LENGTH = 240
@@ -134,6 +134,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
