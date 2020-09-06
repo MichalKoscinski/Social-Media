@@ -40,7 +40,6 @@ urlpatterns = [
     path('<int:post_id>', posts_detail_view),
     path('profile/<str:username>', posts_profile_view),
     path('api/posts/', include('posts.api.urls')),
-    re_path('.*', TemplateView.as_view(template_name='posts/list.html'))
 ]
 
 if settings.DEBUG:
