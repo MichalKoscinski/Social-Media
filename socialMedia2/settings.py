@@ -23,7 +23,7 @@ SECRET_KEY = '3y0rw-13=7-_@a1lvp198g6w_ivf@*r+c997z2g%zg15hk3d8m'
 # SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '3y0rw-13=7-_@a1lvp198g6w_ivf@*r+c997z2g%zg15hk3d8m')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 
 
