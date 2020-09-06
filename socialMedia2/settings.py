@@ -23,7 +23,7 @@ SECRET_KEY = '3y0rw-13=7-_@a1lvp198g6w_ivf@*r+c997z2g%zg15hk3d8m'
 # SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '3y0rw-13=7-_@a1lvp198g6w_ivf@*r+c997z2g%zg15hk3d8m')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 
 
@@ -138,7 +138,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
-STATIC_ROOT = os.path.join(BASE_DIR, "static-root")
+# STATIC_ROOT = os.path.join(BASE_DIR, "static-root")
 
 
 CORS_ORIGIN_ALLOW_ALL = True # any website has access to my api
