@@ -27,7 +27,7 @@ DEBUG = True
 
 
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'social-media-michal.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'social-media-michal.herokuapp.com', '']
 LOGIN_URL = "/login"
 
 MAX_POST_LENGTH = 240
