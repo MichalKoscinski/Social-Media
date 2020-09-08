@@ -231,7 +231,7 @@ REST_FRAMEWORK = {
 
 # CORS_ALLOWED_ORIGINS = [
 # "http://localhost:3000",
-# "http://social-media-michal.herokuapp.com",
+# "https://social-media-michal.herokuapp.com",
 # '127.0.0.1', 
 # '.cfe.sh', 
 # 'localhost', 

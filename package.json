@@ -23,7 +23,7 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "proxy": "http://social-media-michal.herokuapp.com",
+  "proxy": "https://social-media-michal.herokuapp.com",
   "browserslist": {
     "production": [
       ">0.2%",
