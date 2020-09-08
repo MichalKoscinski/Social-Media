@@ -20,7 +20,7 @@ export function backendLookup(method, endpoint, callback, data) {
     jsonData = JSON.stringify(data)
   }
   const xhr = new XMLHttpRequest()
-  const url = `https://social-media-michal.herokuapp.com` //change
+  const url = `http://localhost:8000` //change
   xhr.responseType = "json"
   const csrftoken = getCookie('csrftoken');
   xhr.open(method, url)
