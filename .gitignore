@@ -7,7 +7,9 @@
 .vscode
 env
 newenv
-.vscode
+mypython
+node_modules
+
 # testing
 /coverage
 
