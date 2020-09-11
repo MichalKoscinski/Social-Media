@@ -11,7 +11,7 @@ newenv
 mypython
 node_modules
 build
-
+.env
 
 # testing
 /coverage
