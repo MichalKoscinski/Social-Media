@@ -6,8 +6,11 @@
 .pnp.js
 .vscode
 env
+venv
 newenv
-.vscode
+mypython
+node_modules
+
 # testing
 /coverage
 

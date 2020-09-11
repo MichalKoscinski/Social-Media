@@ -37,7 +37,8 @@ export function ParentPost(props){
       
       return <div className={className}>
               <div>
-                <p>{post.id} - {post.content}</p>
+                <p>Post {post.id}:</p>
+                <p>{post.content}</p>
                 <ParentPost post={post} />
               </div>
           <div className='btn btn-group'>
@@ -53,3 +54,4 @@ export function ParentPost(props){
       </div>
     }
   
+    

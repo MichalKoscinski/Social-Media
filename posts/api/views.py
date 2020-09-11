@@ -18,9 +18,9 @@ from ..serializers import (
 
 ALLOWED_HOSTS = settings.ALLOWED_HOSTS
 
-@api_view(['POST']) # http method the client == POST
-# @authentication_classes([SessionAuthentication, MyCustomAuth])
-@permission_classes([IsAuthenticated]) # REST API course
+@api_view(['POST']) 
+
+@permission_classes([IsAuthenticated])
 def post_create_view(request, *args, **kwargs):
     serializer = PostCreateSerializer(data=request.data)
     if serializer.is_valid(raise_exception=True):
@@ -53,10 +53,8 @@ def post_delete_view(request, post_id, *args, **kwargs):
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def post_action_view(request, *args, **kwargs):
-    '''
-    id is required.
-    Action options are: like, unlike, repost
-    '''
+
+
     serializer = PostActionSerializer(data=request.data)
     if serializer.is_valid(raise_exception=True):
         data = serializer.validated_data
@@ -94,66 +92,3 @@ def post_list_view(request, *args, **kwargs):
         qs = qs.filter(user__username__iexact=username)
     serializer = PostSerializer(qs, many=True)
     return Response( serializer.data, status=200)
-
-
-
-def post_create_view_pure_django(request, *args, **kwargs):
-    '''
-    REST API Create View -> DRF
-    '''
-    user = request.user
-    if not request.user.is_authenticated:
-        user = None
-        if request.is_ajax():
-            return JsonResponse({}, status=401)
-        return redirect(settings.LOGIN_URL)
-    form = PostForm(request.POST or None)
-    next_url = request.POST.get("next") or None
-    if form.is_valid():
-        obj = form.save(commit=False)
-        # do other form related logic
-        obj.user = user
-        obj.save()
-        if request.is_ajax():
-            return JsonResponse(obj.serialize(), status=201) # 201 == created items
-        if next_url != None and is_safe_url(next_url, ALLOWED_HOSTS):
-            return redirect(next_url)
-        form = PostForm()
-    if form.errors:
-        if request.is_ajax():
-            return JsonResponse(form.errors, status=400)
-    return render(request, 'components/form.html', context={"form": form})
-
-
-def post_list_view_pure_django(request, *args, **kwargs):
-    """
-    REST API VIEW
-    Consume by JavaScript or Swift/Java/iOS/Andriod
-    return json data
-    """
-    qs = Post.objects.all()
-    posts_list = [x.serialize() for x in qs]
-    data = {
-        "isUser": False,
-        "response": posts_list
-    }
-    return JsonResponse(data)
-
-
-def post_detail_view_pure_django(request, post_id, *args, **kwargs):
-    """
-    REST API VIEW
-    Consume by JavaScript or Swift/Java/iOS/Andriod
-    return json data
-    """
-    data = {
-        "id": post_id,
-    }
-    status = 200
-    try:
-        obj = Post.objects.get(id=post_id)
-        data['content'] = obj.content
-    except:
-        data['message'] = "Not found"
-        status = 404
-    return JsonResponse(data, status=status) # json.dumps content_type='application/json'
