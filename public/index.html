@@ -31,9 +31,11 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
      <div id='social-media-container'></div>
-    <div id="social-media" data-username="michal" data-can-tweet="false"></div>
-        -->
+     <div  class='d-none'  id='post-container'></div>
+    <div id="social-media" data-username="michal" data-can-post="false"></div>
+        
     <script>
+      
       var path = window.location.pathname
       var idRegex = /(?<postid>\d+)/
       var match = path.match(idRegex)

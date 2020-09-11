@@ -1,18 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import {PostDetailComponent} from './posts'
 import {PostsComponent} from './posts'
 import * as serviceWorker from './serviceWorker';
 
-const appEl = document.getElementById('root')
-if (appEl) {
-    ReactDOM.render(<App />, appEl);
+const postsEl = document.getElementById("social-media")
+if (postsEl) {
+    ReactDOM.render(<PostsComponent />, postsEl);
 }
-const tweetsEl = document.getElementById("social-media")
-if (tweetsEl) {
-    ReactDOM.render(<PostsComponent />, tweetsEl);
-}
+
+const postDetailElements = document.querySelectorAll(".social-media-detail")
+
+postDetailElements.forEach(container=> {
+    ReactDOM.render(
+        React.createElement(PostDetailComponent, container.dataset), 
+        container);
+})
+
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

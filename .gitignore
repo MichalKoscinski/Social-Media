@@ -6,6 +6,7 @@
 .pnp.js
 .vscode
 env
+venv
 newenv
 mypython
 node_modules

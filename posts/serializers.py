@@ -11,9 +11,9 @@ class PostActionSerializer(serializers.Serializer):
     content = serializers.CharField(allow_blank=True, required=False)
 
     def validate_action(self, value):
-        value = value.lower().strip() # "Like " -> "like"
+        value = value.lower().strip()
         if not value in POST_ACTION_OPTIONS:
-            raise serializers.ValidationError("This is not a valid action for posts")
+            raise serializers.ValidationError("This is not a valid action")
         return value
 
 

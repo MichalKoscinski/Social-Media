@@ -17,7 +17,6 @@ export function PostCreate(props){
     const handleSubmit = (event) => {
       event.preventDefault()
       const newVal = textAreaRef.current.value
-      // backend api request
       apiPostCreate(newVal, handleBackendUpdate)
       textAreaRef.current.value = ''
     }
