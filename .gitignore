@@ -10,6 +10,8 @@ venv
 newenv
 mypython
 node_modules
+build
+
 
 # testing
 /coverage

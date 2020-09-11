@@ -1,3 +1,3 @@
 release: python manage.py migrate
-web: python manage.py collectstatic --noinput; gunicorn socialMedia2.wsgi
+web: gunicorn socialMedia2.wsgi
 
