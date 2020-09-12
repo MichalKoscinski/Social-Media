@@ -9,4 +9,4 @@ Link: https://social-media-michal.herokuapp.com/
 
 
 
-![alt text](https://https://ibb.co/02rfZyP)
+![alt text](https://i.ibb.co/F3zBJ4G/Social-media.png)
