@@ -41,6 +41,7 @@ urlpatterns = [
   #  re_path('.*', TemplateView.as_view(template_name='posts/list.html'))
 ]
 
+
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, 
                 document_root=settings.STATIC_ROOT)
