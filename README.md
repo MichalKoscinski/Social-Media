@@ -6,4 +6,7 @@ I used Django REST framework to build web APIs, React and Bootstrap to make the 
 Link: https://social-media-michal.herokuapp.com/
 
 
-https://ibb.co/02rfZyP
+
+
+
+![alt text](https://https://ibb.co/02rfZyP)
