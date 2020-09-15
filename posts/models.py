@@ -10,8 +10,6 @@ class PostLike(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
 
 class Post(models.Model):
-    # Maps to SQL data
-    # id = models.AutoField(primary_key=True)
     parent = models.ForeignKey("self", null=True, on_delete=models.SET_NULL)
     user = models.ForeignKey(User, on_delete=models.CASCADE) 
     likes = models.ManyToManyField(User, related_name='post_user', blank=True, through=PostLike)
