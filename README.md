@@ -1,13 +1,3 @@
-
-
-
-I used Django REST framework to build web APIs, 
-React and Bootstrap to make the client-side look better
-and PostgreSQL to communicate between the backend and the frontend.
-
-
-
-
 # Social Media Platform
 Social Media Platform allowing to write posts, like them or share them.
 
