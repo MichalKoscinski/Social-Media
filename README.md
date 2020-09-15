@@ -31,7 +31,7 @@ $ py manage.py test
 
 ### Commands
 - **npm start:** Starts the frontend on address localhost:8000.
-- **npm run build:** Builds application to `/dist` folder.
+- **npm run build:** Builds application to `/build` folder.
 
 ### Screenshot:
 
