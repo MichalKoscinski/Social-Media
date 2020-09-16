@@ -29,11 +29,6 @@ $ py manage.py runserver
 ```
 $ py manage.py test
 ```
-### Setup the frontend 
-```
-$ npm install
-$ npm start
-```
 
 ### Commands
 - **npm start:** Starts the frontend on address localhost:8000.
