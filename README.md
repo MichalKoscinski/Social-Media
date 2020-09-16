@@ -21,6 +21,7 @@ https://social-media-michal.herokuapp.com/
 ### Setup
 ```
 $ cd Social-Media
+$ pip install requirements.txt 
 $ py manage.py runserver
 ```
 
