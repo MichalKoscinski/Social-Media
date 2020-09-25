@@ -3,7 +3,7 @@ Social Media Platform allowing to write posts, like them or share them.
 
 I used Django REST framework to build web APIs, 
 React and Bootstrap to make the client-side look better
-and PostgreSQL to communicate between the backend and the frontend.
+and PostgreSQL to communicate between the backend and the frontend. In addition, the work includes appropriate unit tests.
 
 The website was deployed using Heroku.
 
