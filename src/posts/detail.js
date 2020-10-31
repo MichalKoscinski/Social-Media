@@ -36,7 +36,7 @@ export function ParentPost(props){
       }
       
       return <div className={className}>
-              <div>
+              <div className= 'col-md-6'>
                 <p>Post {post.id}:</p>
                 <p>{post.content}</p>
                 <ParentPost post={post} />
