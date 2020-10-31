@@ -36,11 +36,13 @@ export function ParentPost(props){
       }
       
       return <div className={className}>
-              <div>
+        
+              <div className= 'col-md-6'>
                 <p>Post {post.id}:</p>
                 <p>{post.content}</p>
                 <ParentPost post={post} />
               </div>
+        
           <div className='btn btn-group'>
           {(actionPost && hideActions !== true) && <React.Fragment>
                   <ActionBtn post={actionPost} didPerformAction={handlePerformAction} action={{type: "like", display:"Likes"}}/>

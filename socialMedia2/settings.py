@@ -20,14 +20,16 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '3y0rw-13=7-_@a1lvp198g6w_ivf@*r+c997z2g%zg15hk3d8m')
+#config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG')
+DEBUG = False
+#config('DEBUG')
 
 
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'social-media-michal.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'social-media-michal.herokuapp.com', 'testingsocial.herokuapp.com']
 LOGIN_URL = "/login"
 
 MAX_POST_LENGTH = 240
@@ -87,11 +89,11 @@ WSGI_APPLICATION = 'socialMedia2.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('DB_NAME'),
-        'USER': config('DB_USER'),
-        'PASSWORD': config('DB_PASSWORD'),
-        'HOST': config('DB_HOST'),
-        'PORT': config('DB_PORT'),
+        'NAME': 'yzxparmq',
+        'USER': 'yzxparmq',
+        'PASSWORD': 'hpyz6aZNZ8C3L-Fl9U0Q1m-D0USttd9B',
+        'HOST': 'rogue.db.elephantsql.com',
+        'PORT': '5432',
     }
 }
 
