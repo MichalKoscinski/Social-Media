@@ -31,7 +31,7 @@ $ py manage.py test
 ```
 
 ### Commands
-- **npm start:** Starts the frontend on address localhost:8000.
+- **npm start:** Starts the frontend on address social-media-michal.herokuapp.com.
 - **npm run build:** Builds application to `/build` folder.
 
 ### Screenshot:
