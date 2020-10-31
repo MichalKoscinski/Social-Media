@@ -15,7 +15,7 @@ export function PostsComponent(props) {
       setNewPosts(tempNewPosts)
     }
     return <div className={props.className}>
-      <div class="p-9 mb-20 bg-light">
+      <div>
             {canPost === true && <PostCreate didPost={handleNewPost} className='col-12 mb-3' />}
           <PostsList newPosts={newPosts} {...props} />
     </div>
